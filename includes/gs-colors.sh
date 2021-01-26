@@ -21,6 +21,7 @@ GOOD="[${GREEN}✓${NC}]"
 STAT="[${CYAN}e${NC}]"
 INFO="[${YELLOW}i${NC}]"
 NEED="[${BLUE}?${NC}]"
+LOGO="[${PURPLE}∞${NC}]"
 
 ## Echo Stack
 ### Informative
@@ -52,3 +53,20 @@ function echo_fail {
 function echo_need {
     echo -en "${NEED} ${MESSAGE}: "
 }
+
+### Gravity Sync Logo
+function echo_grav {
+    echo -e "${LOGO} ${BOLD}${MESSAGE}${NC}"
+}
+
+### Lines
+function echo_lines {
+    echo -e "========================================================"
+}
+
+### Lines
+function echo_blank {
+    echo -e ""
+}
+
+
