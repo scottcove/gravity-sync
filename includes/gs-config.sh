@@ -7,7 +7,7 @@
 ## Configure Task
 function task_configure {				
     TASKTYPE='CONFIGURE'
-    MESSAGE="${MESSAGE}: ${TASKTYPE} Requested"
+    MESSAGE="${MESSAGE}: ${TASKTYPE}"
     echo_good
     
     relocate_config_gs
@@ -35,7 +35,7 @@ function config_generate {
     
     MESSAGE="Creating New ${CONFIG_FILE} from Template"
     echo_stat
-    cp ${LOCAL_FOLDR}/settings/${CONFIG_FILE}.example ${LOCAL_FOLDR}/settings/${CONFIG_FILE}
+    cp ${LOCAL_FOLDR}/templates/${CONFIG_FILE}.example ${LOCAL_FOLDR}/settings/${CONFIG_FILE}
     error_validate
     
     echo_lines
@@ -52,7 +52,7 @@ function config_generate {
     echo -e "considered the the SECONDARY Pi-hole! The REMOTE Pi-hole where you will normally make configuration" 
     echo -e "changes is considered the PRIMARY Pi-hole."
     echo_blank
-    echo -e "Confused? Refer back to the documentation."
+    echo -e "Confused? Please refer back to the documentation."
     echo_lines
     
     docker_detect
@@ -71,13 +71,13 @@ function config_generate {
         read INPUT_ADVANCED_INSTALL
         INPUT_ADVANCED_INSTALL="${INPUT_ADVANCED_INSTALL:-N}"
     
-        if [ "${INPUT_ADVANCED_INSTALL}" == "N" ]
+        if [ "${INPUT_ADVANCED_INSTALL}" == "Y" ]
         then
             MESSAGE="Advanced Configuration Selected"
             echo_info
         
             advanced_config_generate
-        elif [ "${INPUT_ADVANCED_INSTALL}" == "Y" ]
+        elif [ "${INPUT_ADVANCED_INSTALL}" == "N" ]
         then
             MESSAGE="Standard Configuration Selected"
             echo_info

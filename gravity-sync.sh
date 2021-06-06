@@ -3,8 +3,7 @@ SCRIPT_START=$SECONDS
 
 # GRAVITY SYNC BY VMSTAN #####################
 PROGRAM='Gravity Sync'
-VERSION='3.3.0'
-
+VERSION='3.4.4'
 
 # For documentation or downloading updates visit https://github.com/vmstan/gravity-sync
 # Requires Pi-Hole 5.x or higher already be installed, for help visit https://pi-hole.net
@@ -36,6 +35,7 @@ FILE_OWNER='pihole:pihole'			# default Pi-hole file owner and group (local)
 RILE_OWNER='pihole:pihole'			# default Pi-hole file owner and group (remote)
 DOCKER_CON='pihole'					# default Pi-hole container name (local)
 ROCKER_CON='pihole'					# default Pi-hole container name (remote)
+CONTAIMAGE='pihole/pihole'          # official Pi-hole container image
 
 GRAVITY_FI='gravity.db' 			        # default Pi-hole database file
 CUSTOM_DNS='custom.list'			        # default Pi-hole local DNS lookups
@@ -52,6 +52,7 @@ ROOT_CHECK_AVOID='0'				# replace in gravity-sync.conf to overwrite
 
 # Backup Customization
 BACKUP_RETAIN='3'					# replace in gravity-sync.conf to overwrite
+BACKUP_TIMEOUT='60'                 # replace in gravity-sync.conf to overwrite
 
 # SSH Customization
 SSH_PORT='22' 						# default SSH port
@@ -74,6 +75,9 @@ BASH_PATH='/bin/bash'				# default OS bash path
 ##############################################
 ### NEVER CHANGE ANYTHING BELOW THIS LINE! ###
 ##############################################
+
+# Import UI Fields
+source ${LOCAL_FOLDR}/includes/gs-ui.sh
 
 # Import Color/Message Includes
 source ${LOCAL_FOLDR}/includes/gs-colors.sh
